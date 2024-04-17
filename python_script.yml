@@ -22,4 +22,4 @@ jobs:
         pip install feedparser schedule
 
     - name: Run script
-      run: python path/to/your_script.py # Replace with your script path
+      run: python rsstoxml.py # Replace with your script path
