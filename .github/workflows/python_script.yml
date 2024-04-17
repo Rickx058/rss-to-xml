@@ -1,13 +1,14 @@
 name: Run Python Script
 
 on:
-  schedule:
-    - cron: '0 */1 * * *' # Runs every hour
+  push:
+    branches:
+      - main  # or whatever your default branch is
 
 jobs:
   run:
     runs-on: ubuntu-latest
-        
+    
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
@@ -21,7 +22,4 @@ jobs:
       run: pip install feedparser
 
     - name: Run script
-      run: python script.py ${{ secrets.RSS_URL }} ${{ secrets.OUTPUT_FILE }}
-      env:
-        RSS_URL: ${{ secrets.RSS_URL }}
-        OUTPUT_FILE: ${{ secrets.OUTPUT_FILE }}
+      run: python rsstoxml.py
