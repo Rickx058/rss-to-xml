@@ -7,7 +7,7 @@ on:
 jobs:
   run:
     runs-on: ubuntu-latest
-    
+        
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
@@ -18,8 +18,10 @@ jobs:
         python-version: '3.x' # Specify your Python version
 
     - name: Install dependencies
-      run: |
-        pip install feedparser schedule
+      run: pip install feedparser
 
     - name: Run script
-      run: python rsstoxml.py # Replace with your script path
+      run: python script.py ${{ secrets.RSS_URL }} ${{ secrets.OUTPUT_FILE }}
+      env:
+        RSS_URL: ${{ secrets.RSS_URL }}
+        OUTPUT_FILE: ${{ secrets.OUTPUT_FILE }}
