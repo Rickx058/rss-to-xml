@@ -8,7 +8,7 @@ on:
 jobs:
   run:
     runs-on: ubuntu-latest
-    
+        
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
@@ -22,4 +22,4 @@ jobs:
       run: pip install feedparser
 
     - name: Run script
-      run: python rsstoxml.py
+      run: python xmlgenerator.py
