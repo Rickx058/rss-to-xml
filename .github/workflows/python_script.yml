@@ -23,3 +23,5 @@ jobs:
 
     - name: Run script
       run: python xmlgenerator.py
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
